@@ -17,9 +17,9 @@ $allowedResourcesTypes = [
 ];
 
 //Validacion de que el tipo de dato solicitado se encuentra en los permitidos
-$resourceType = $_GET['resource_type'];
+$resource_type = $_GET['resource_type'];
 
-if (!in_array($resourceType, $allowedResourcesTypes)) {
+if (!in_array($resource_type, $allowedResourcesTypes)) {
     die;
 }
 
@@ -81,10 +81,20 @@ $books = [
 //Header para el usuario
 header('Content-Type: application/json');
 
+//Obteniendo id de reecurso buscado
+$resource_id = array_key_exists('resource_id', $_GET) ? $_GET['resource_id'] : '';
+
 //Comprobacion del tipo de peticion
 switch ( strtoupper($_SERVER['REQUEST_METHOD']) ) {
     case 'GET':
-        echo json_encode($books);
+        if (empty($resource_id)) {
+            echo json_encode($books);
+        } else {
+            if (array_key_exists($resource_id, $books)) {
+                echo json_encode($books[$resource_id]);
+            }
+        }
+        
         break;
     case 'POST':
         echo "POST request received";
