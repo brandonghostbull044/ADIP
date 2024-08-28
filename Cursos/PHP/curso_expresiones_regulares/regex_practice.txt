@@ -1,0 +1,23 @@
+1234567890
+098-765-4321
+john.doe@example.com
+info@company.co.uk
+https://www.example.com
+ftp://ftp.example.com/resource
+123 Main St., Anytown, USA
+00:1A:2B:3C:4D:5E
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+AA11BB22CC33
+Xyz123!@#
+RandomLineWithNoMeaning123
+brandon_gonzalez1997@domain.com
+https://sub.domain.com/path/to/resource?query=param#fragment
+Phone: +1 (555) 123-4567
+Hex: 0xABCD1234
+RGB(255, 255, 255)
+Price: $19.99
+Date: 2024-08-24
+Time: 12:34:56 PM
+User: brandonlglz
+Path: C:\Users\brandon\Documents\file.txt
+UUID: 550e8400-e29b-41d4-a716-446655440000

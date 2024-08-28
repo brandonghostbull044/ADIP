@@ -1,0 +1,15 @@
+https://www.example.com
+http://example.org/path/to/resource
+https://subdomain.example.net:8080/query?name=value
+ftp://ftp.example.com/file.txt
+https://www.example.com/index.html?user=test#section
+http://192.168.0.1/login
+https://example.edu
+https://www.example.co.uk/page?id=123&sort=asc
+http://localhost:3000/api/data
+https://example.com:443/path/to/page
+http://sub.example.com/path/to/resource?search=test#fragment
+https://user:password@example.com:8443/path
+ftp://user:password@ftp.example.org/file.zip
+https://xn--exmple-cua.com
+https://example.io/path/to/resource.html
