@@ -6,6 +6,59 @@
     php -S localhost:8000 archivo_de_entrada_al_server.php
 
     Para poder probar la coneccion podemos usar curl con la flag '-v' al final para ver todo el contenido
+
+    Con curl:
+    POST => curl -X 'POST' URL -d '{}'
+
+    AUTH HTTP => curl http://user:password@localhost:8000/URI
+    AUTH HMAC => curl URL -H "X-HASH: your_hash" -H "X-UID: your_id" -H "X-TIMESTAMP: your_timestamp"   
+*/
+
+//Autenticacion mediante HMAC
+if (
+    !array_key_exists('HTTP_X_HASH', $_SERVER) ||
+    !array_key_exists('HTTP_X_TIMESTAMP', $_SERVER) ||
+    !array_key_exists('HTTP_X_UID', $_SERVER)
+) {
+    header('WWW-Authenticate: HMAC realm="Restricted Area"');
+    echo "No tienes acceso a la API";
+    die;
+} 
+
+list($hash, $iud, $time_stamp) = [
+    $_SERVER['HTTP_X_HASH'],
+    $_SERVER['HTTP_X_UID'],
+    $_SERVER['HTTP_X_TIMESTAMP']
+];
+
+//Clave secreta que solo conoce el cliente y servidor
+$secret_key = 'my_secret_key_is_very_very_confidential';
+
+//Generacion del hash
+$new_hash = sha1($iud.$time_stamp.$secret_key);
+
+//Comparacion del hash recibido con el generado
+
+if ($hash !== $new_hash) {
+    header('WWW-Authenticate: HMAC realm="Restricted Area"');
+    echo "No tienes acceso a la API";
+    die;
+}
+
+
+
+
+
+//Autenticacion mediante HTTP
+/*
+$user = array_key_exists('PHP_AUTH_USER', $_SERVER) ? $_SERVER['PHP_AUTH_USER'] : '';
+$password = array_key_exists('PHP_AUTH_PW', $_SERVER)? $_SERVER['PHP_AUTH_PW'] : '';
+
+if ($user !== 'admin' || $password !== 'admin') {
+    header('WWW-Authenticate: Basic realm="Restricted Area"');
+    echo "No tienes acceso a la API";
+    die;
+}
 */
 
 
@@ -97,13 +150,27 @@ switch ( strtoupper($_SERVER['REQUEST_METHOD']) ) {
         
         break;
     case 'POST':
-        echo "POST request received";
+        $json = file_get_contents('php://input');
+        $books[] = json_decode($json, true);
+        var_dump($books);
+        echo array_keys($books)[count($books) - 1];
         break;
     case 'PUT':
-        echo "PUT request received";
+        if (!empty($resource_id) && array_key_exists($resource_id, $books)) {
+            $json = file_get_contents('php://input');
+            $books[$resource_id] = json_decode($json, true);
+            echo json_encode($books);
+        } else {
+            echo "No se encontro el recurso";
+        }
         break;
     case 'DELETE':
-        echo "DELETE request received";
+        if (!empty($resource_id) && array_key_exists($resource_id, $books)) {
+            unset($books[$resource_id]);
+            echo json_encode($books);
+        } else {
+            echo "No se encontro el recurso";
+        }
         break;
     default:
         echo "Unsupported request method";
