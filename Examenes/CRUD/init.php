@@ -10,7 +10,10 @@ $commands = [
 ];
 
 
-$chose = readline("Ingresa la opcion para iniciar el servidor:\n     1) Iniciar con Midleware (incluye Token Auth y Basic Auth)\n     2) Iniciar APIs por separado (unicamente Basic Auth)\n--> ");
+
+echo "Ingresa la opcion para iniciar el servidor:\n     1) Iniciar con Midleware (incluye Token Auth y Basic Auth)\n     2) Iniciar APIs por separado (unicamente Basic Auth)\n";
+
+$chose = readline("--> ");
 
 require __DIR__ . '/./src/read_credentials.php';
 
@@ -20,7 +23,7 @@ switch ( "$chose" ) {
         echo "Servidor iniciado....\nIngresa a http://localhost:8000 para ver la documentacion.\n\n";
         break;
     case 2:
-        echo "Servidores iniciados....\nRealiza tus peticiones GET en http://localhost:8000\nTus peticiones POST en http://localhost:8001\nTus peticiones PUT en http://localhost:8002\nTus peticiones DELETE en http://localhost:8003\n para ver la documentacion.";
+        echo "Servidores iniciados....\nRealiza tus peticiones GET en http://localhost:8001\nTus peticiones POST en http://localhost:8002\nTus peticiones PUT en http://localhost:8003\nTus peticiones DELETE en http://localhost:8004\n para ver la documentacion.";
         break;
     default:
         echo "Opcion invalida.";
@@ -28,9 +31,24 @@ switch ( "$chose" ) {
 }
 
 
-// Comando combinado para iniciar ambos servidores en segundo plano
 $command = $commands[$chose];
 
 shell_exec($command);
+
+
+declare(ticks = 1);
+
+function shutdown()
+{
+    shell_exec('killall php');
+    exit;
+}
+
+pcntl_signal(SIGINT, "shutdown");
+
+while (true) {
+    sleep(1);
+}
+
 
 ?>
