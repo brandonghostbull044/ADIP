@@ -16,10 +16,7 @@ function auth($usr, $passwd, $api_user, $api_pass) {
 }
 
 if ( empty($password) || empty($user) ) {
-    echo "\n\nFaltan las credenciales. Quieres ingresarlas, ingresalas por consola.\n";
-    $user = readline("Usuario: ");
-    $password = readline("Contraseña: ");
-    auth($user, $password, $api_user, $api_pass);
+    die("\n\nFaltan las credenciales. Ingresalas por consola.\n");
 } else {
     auth($user, $password, $api_user, $api_pass);
 }

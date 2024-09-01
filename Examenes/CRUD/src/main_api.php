@@ -10,7 +10,7 @@ if ($matches[1] == '') {
 } else {
 	//Autenticacion
 	if ( !array_key_exists( 'HTTP_X_TOKEN', $_SERVER ) ) {
-		die;
+		die('Necesitas un token de autenticaión.');
 	}
 
 	$url = 'http://localhost:8001';

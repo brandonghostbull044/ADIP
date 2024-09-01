@@ -31,9 +31,19 @@ if ( $_SERVER['REQUEST_METHOD'] != 'PUT' ) {
         
         $json = json_decode(file_get_contents('php://input'), true);
         $id = $matches[2];
-        $nombre = $json['nombre'] != '' ? $json['nombre'] : '';
-        $edad = $json['edad'] != '' ? $json['edad'] : '';
-        $correo = $json['correo'] != '' ? $json['correo'] : '';
+        $nombre = (array_key_exists('nombre', $json) && $json['nombre'] != '') ? $json['nombre'] : '';
+        $edad = (array_key_exists('edad', $json) && $json['edad'] != '') ? $json['edad'] : -1;
+        $correo = (array_key_exists('correo', $json) && $json['correo'] != '') ? $json['correo'] : '';
+
+        if ( $nombre != '' && preg_match("/^[\p{L} ]+$/u", $nombre) == 0) {
+            http_response_code(400);
+            die("El nombre solo puede contener letras");
+        }
+        
+        if ( $correo != '' && !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+            http_response_code(400);
+            die("El correo no es válido");
+        }
         
         
         header('Content-Type: application/json');
