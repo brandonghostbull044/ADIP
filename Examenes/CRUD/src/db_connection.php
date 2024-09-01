@@ -1,11 +1,16 @@
 <?php
 
 
-$host = '127.0.0.1';
-$db = 'USUARIOS';
-$user = 'brandonADIP';
-$pass = 'contr4s3n4s3gur4';
+$db_host = getenv('DB_HOST');
+$db_name = getenv('DB_NAME');
+$db_user = getenv('DB_USER');
+$db_pass = getenv('DB_PASS');
 
+
+$host = $db_host;
+$db = $db_name;
+$user = $db_user;
+$pass = $db_pass;
 
 $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 

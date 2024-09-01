@@ -1,7 +1,7 @@
 <?php
 
 
-function loadEnv($path, $until) {
+function loadEnv($path) {
     if (!file_exists($path)) {
         throw new Exception("El archivo .env no existe en la ruta especificada.");
     }
@@ -9,14 +9,14 @@ function loadEnv($path, $until) {
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     
 
-    for ($i = 0; $i < $until; $i++) {
+    foreach ($lines as $line) {
         // Omitir líneas de comentarios
-        if (strpos(trim($lines[$i]), '#') === 0) {
+        if (strpos(trim($line), '#') === 0) {
             continue;
         }
 
         // Separar la clave y el valor
-        list($key, $value) = explode('=', $lines[$i], 2);
+        list($key, $value) = explode('=', $line, 2);
 
         // Eliminar espacios y comillas alrededor del valor
         $key = trim($key);
@@ -29,14 +29,10 @@ function loadEnv($path, $until) {
     }
 }
 
-// Llamar a la función para cargar las variables de entorno
-loadEnv(__DIR__ . '/.env', 4);
 
-// Ahora puedes acceder a las variables de entorno
-$db_host = getenv('DB_HOST');
-$db_name = getenv('DB_NAME');
-$db_user = getenv('DB_USER');
-$db_pass = getenv('DB_PASS');
+
+// Llamar a la función para cargar las variables de entorno
+loadEnv(__DIR__ . '/../.env');
 
 
 ?>

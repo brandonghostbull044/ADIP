@@ -5,10 +5,9 @@
 $matches = [];
 
 if (preg_match('/\/([^\/]+)?\/?([^\/]+)?/', $_SERVER["REQUEST_URI"], $matches)) {
-    global $matches;
 
     if ($matches[1] == '') {
-        require __DIR__ . '/../docs/doc.php';
+        require __DIR__ . '/../docs/one_server.doc.php';
     } else {
         switch ($_SERVER['REQUEST_METHOD']) {
             case 'GET':
