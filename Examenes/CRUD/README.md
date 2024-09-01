@@ -4,6 +4,22 @@ Este proyecto es una API CRUD que permite gestionar una base de datos de usuario
 
 ## Descripción del Proyecto
 
+Este CRUD sirve para gestionar datos en una base de datos. En este proyecto, la API permite realizar las siguientes operaciones:
+
+Crear (POST): Agregar un nuevo usuario a la base de datos.
+Leer (GET): Obtener la información de los usuarios existentes.
+Actualizar (PUT): Modificar los datos de un usuario específico.
+Eliminar (DELETE): Eliminar un usuario de la base de datos.
+
+La base de datos de usuarios incluye los siguientes campos:
+
+Nombre: Nombre del usuario.
+Edad: Edad del usuario.
+Correo: Correo electrónico del usuario.
+Cada operación está protegida por autenticación básica y/o autenticación por token, dependiendo de la configuración que elijas al iniciar el servidor.
+
+
+
 La API CRUD está diseñada para manejar una base de datos de usuarios con los siguientes campos:
 - **Nombre** (string)
 - **Edad** (integer)
@@ -31,27 +47,3 @@ La API permite las siguientes operaciones:
 3. **Revisar la documentación:**
 
     El script te proporcionará la opción de abrir la documentación del proyecto. Es altamente recomendable que revises la documentación para entender cómo interactuar con la API y cómo realizar las operaciones CRUD.
-
-
-Descripción del CRUD
-El CRUD (Crear, Leer, Actualizar, Eliminar) es una funcionalidad básica para gestionar datos en una base de datos. En este proyecto, la API permite realizar las siguientes operaciones:
-
-Crear (POST): Agregar un nuevo usuario a la base de datos.
-Leer (GET): Obtener la información de los usuarios existentes.
-Actualizar (PUT): Modificar los datos de un usuario específico.
-Eliminar (DELETE): Eliminar un usuario de la base de datos.
-La base de datos de usuarios incluye los siguientes campos:
-
-Nombre: Nombre del usuario.
-Edad: Edad del usuario.
-Correo: Correo electrónico del usuario.
-Cada operación está protegida por autenticación básica o autenticación por token, dependiendo de la configuración que elijas al iniciar el servidor.
-
-Requisitos
-PHP 7.4 o superior
-Acceso a la línea de comandos (CLI)
-Dependencias necesarias especificadas en el archivo composer.json (si aplica)
-Contribuciones
-Si deseas contribuir al proyecto, por favor, envía un pull request con tus cambios o mejoras. Asegúrate de seguir las mejores prácticas de desarrollo y de incluir pruebas para nuevas funcionalidades.
-
-
