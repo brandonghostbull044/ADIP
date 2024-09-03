@@ -10,6 +10,13 @@ $commands = [
 ];
 
 
+$create = readline("Quieres crear la base de datos? (s/n)");
+
+if ($create == 's') {
+    require __DIR__. '/./src/create_db.php';
+}
+
+
 
 echo "Ingresa la opcion para iniciar el servidor:\n     1) Iniciar con Midleware (incluye Token Auth y Basic Auth)\n     2) Iniciar APIs por separado (unicamente Basic Auth)\n";
 

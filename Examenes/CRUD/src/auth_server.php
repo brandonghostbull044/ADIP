@@ -19,7 +19,6 @@ if ( $method === 'POST' ) {
 
     if ( $clientId !== $auth_id || $secret !== $auth_secret ) {
         http_response_code( 403 );
-        echo 'SECRETO' . $auth_secret . ' secretoU' . ' IdU' . $clientId . ' ID' . $auth_id;
 
         die ( "No autorizado");
     }

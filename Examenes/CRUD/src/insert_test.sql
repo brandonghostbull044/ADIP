@@ -1,0 +1,11 @@
+USE USUARIOS;
+CALL InsertarUsuario('Juan Pérez', 25, 'juan.perez@example.com');
+CALL InsertarUsuario('María López', 30, 'maria.lopez@example.com');
+CALL InsertarUsuario('Carlos García', 22, 'carlos.garcia@example.com');
+CALL InsertarUsuario('Ana Martínez', 28, 'ana.martinez@example.com');
+CALL InsertarUsuario('Luis Hernández', 35, 'luis.hernandez@example.com');
+CALL InsertarUsuario('Sofía Rodríguez', 26, 'sofia.rodriguez@example.com');
+CALL InsertarUsuario('Miguel Sánchez', 40, 'miguel.sanchez@example.com');
+CALL InsertarUsuario('Laura Gómez', 32, 'laura.gomez@example.com');
+CALL InsertarUsuario('Andrés Ramírez', 29, 'andres.ramirez@example.com');
+CALL InsertarUsuario('Isabel Torres', 27, 'isabel.torres@example.com');
