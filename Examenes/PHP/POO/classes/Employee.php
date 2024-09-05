@@ -1,4 +1,4 @@
-class Employee() {
+class Employee {
     public $first_name;
     public $last_name;
     public $age;
@@ -14,12 +14,10 @@ class Employee() {
     }
 
     public function getFullName() {
-        echo $this->first_name . ' ' . $this->last_name;
         return $this->first_name. ' ' . $this->last_name;
     }
 
     public function getAnnualSalary() {
-        echo $this->saliry * 12;
         return $this->saliry * 12;
     }
 }
