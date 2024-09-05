@@ -1,0 +1,38 @@
+//Cuando usamos use(), y no existe la base de  datos, la crea automaticamente, no necesitamos indicarle que la cree
+
+use("second_db")
+db.products.insertOne({
+    id: 1,
+    name: "Carro de control",
+    price: 1000
+})
+
+db.products.insertOne({
+    id: 1,
+    name: "Carro de control 2",
+    price: 1000
+})
+
+db.products.insertOne({
+    id: 1,
+    name: "Carro de control 3",
+    price: 1000
+})
+
+db.products.insertOne({
+    id: 1,
+    name: "Carro de control 4",
+    price: 1000
+})
+
+db.products.insertOne({
+    id: 1,
+    name: "Carro de control 5",
+    price: 1000
+})
+
+db.products.insertOne({
+    id: 1,
+    name: "Carro de control 6",
+    price: 1000
+})

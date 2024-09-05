@@ -1,0 +1,11 @@
+use("sample_training")
+
+db.zips.updateMany(
+    {city: "CLEVELAND"},
+    {
+        $rename: {
+            pop: "population"
+        }}
+)
+
+db.zips.find({city: "CLEVELAND"})

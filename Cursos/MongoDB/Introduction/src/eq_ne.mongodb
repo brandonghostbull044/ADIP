@@ -1,0 +1,33 @@
+use("eq_ne")
+
+// $eq 
+
+db.inventory.find({qty: {$eq: 20}})
+
+db.inventory.find({"item.name": {$eq: "mn"}})
+
+db.inventory.updateMany(
+    {"item.name": {$ne: "mn"}},
+    {
+        $inc: {
+            qty: 100
+        }
+    }
+)
+
+
+db.inventory.updateMany(
+    {
+        "item.name": {$ne: "mn"},
+        "item.code": "456"
+    },
+    {
+        $push: {
+            tags: "C"
+        }
+    },
+    {upsert: true}
+)
+
+
+db.inventory.find({"item.name": {$ne: "mn"}})

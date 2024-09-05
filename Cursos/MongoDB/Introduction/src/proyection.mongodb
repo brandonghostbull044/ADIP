@@ -1,0 +1,8 @@
+use("sample_training")
+
+
+//La projection son como los campos del SELECT en SQL, se le mandan como segundo parametro a la funcion find()
+db.trips.find(
+    {},
+    {tripduration: 1}
+)

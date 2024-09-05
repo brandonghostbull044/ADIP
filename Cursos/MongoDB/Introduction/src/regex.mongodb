@@ -1,0 +1,5 @@
+use("regex")
+
+
+
+db.inventory.find({"item.description": {$regex: /^s/im}})

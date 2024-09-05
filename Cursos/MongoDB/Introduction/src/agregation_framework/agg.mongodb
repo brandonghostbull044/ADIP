@@ -1,0 +1,22 @@
+use('sample_airbnb')
+
+
+
+//Forma tradicional con MongoQuerys
+db.listingsAndReviews.find(
+    {
+        amenities: "Wifi"
+    },
+    {
+        price: 1,
+        amenities: 1
+    }
+)
+
+
+//Con agregation Framework. Sirve por capas, como el pipe operator, la salida del anterior es la entrada del siguiente
+db.listingsAndReviews.aggregate([
+    { $match: { amenities: "Wifi" } },
+    { $project: { address: 1 } },
+    { $group: { _id: "$address.country", count: { $sum: 1 } } }
+])

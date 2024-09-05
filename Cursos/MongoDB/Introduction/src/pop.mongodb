@@ -1,0 +1,14 @@
+use("upsert")
+
+
+//Para usar pop debemos mandarle un valor (1 o -1) al atributo al que le queremos eliminar un elementos, 1 para elimar el ultimo y -1 para el primero
+db.iot.updateOne({
+    sensor: "A001",
+    date: "2022-01-03"
+}, {
+    $pop: {
+        readings: -1
+    }
+})
+
+db.iot.find()

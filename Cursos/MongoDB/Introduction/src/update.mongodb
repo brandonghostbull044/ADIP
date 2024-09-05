@@ -1,0 +1,23 @@
+use("second_db")
+db.products.updateOne(
+    //Identificador del documento
+    {_id: 1}, 
+    //Operador de cambio
+    {
+    //set permite actualizar solo algunos atributos, si el atributo no existe lo crea
+    $set: {
+        name: "Update Name",
+        price: 120.00
+    }
+})
+
+db.products.updateOne(
+    //Para usar el id generado por Mongo usamos la funcion ObjectId()
+    {_id: ObjectId("66d8c397c353ed055ef7805f")}, 
+    //Operador de cambio
+    {
+    //inc permite incementar valores numericos
+    $inc: {
+        price: 120.00
+    }
+})

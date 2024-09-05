@@ -1,0 +1,26 @@
+use("array_update_operators")
+
+
+//De esta manera solo eliminamos un elementos de la lista 
+db.inventory.updateMany({},
+    {
+        $pull: {
+            tags: "book"
+        }
+    }
+)
+
+
+
+//De esta manera eliminamos mas de un elemento de la lista
+db.inventory.updateMany({},
+    {
+        $pull: {
+            tags: {
+                $in: ["school", "bag"]
+            }
+        }
+    }
+)
+
+db.inventory.find()

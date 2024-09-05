@@ -1,0 +1,12 @@
+use("sample_training")
+
+
+//la funcion count() sirve para contar los que coicidan con lo anterior
+db.zips.find({city: "CLEVELAND"}).count()
+
+db.zips.updateMany(
+    {city: "CLEVELAND"},
+    {$inc: {pop: 1000}}
+)
+
+db.zips.find({city: "CLEVELAND"})

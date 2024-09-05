@@ -1,0 +1,78 @@
+use("sample_training")
+
+
+//Esto es un AND implicito
+db.inspections.find(
+    {
+        sector: "Tax Preparers - 891",
+        result: "Unable to Locate"
+    }
+)
+
+
+//Esto es un AND explicito
+db.inspections.find(
+    {
+        $and: [
+            {sector: "Tax Preparers - 891"},
+            {result: "Unable to Locate"}
+        ]
+    }
+).count()
+
+
+//OR
+db.inspections.find(
+    {
+        $or: [
+            {sector: "Tax Preparers - 891"},
+            {result: "Unable to Locate"}
+        ]
+    }
+).count()
+
+
+
+//NOT con arrays
+db.inspections.find(
+    {
+        $nor: [
+            {sector: "Tax Preparers - 891"},
+            {result: "Unable to Locate"}
+        ]
+    }
+).count()
+
+
+//NOT para valores
+db.inspections.find(
+    {
+        result: {$not: {$regex: /Unable to Locate/}}
+    }
+).count()
+
+
+
+
+
+//Examples
+db.routes.find(
+    {
+        airplane: "E70"
+    }
+).count()
+
+
+db.routes.find(
+    {
+        $and: [
+            {airplane: "E70"},
+            {
+                $or: [
+                    {dst_airport: "BOG"},
+                    {src_airport: "BOG"}
+                ]
+            }
+        ]
+    }
+).count()

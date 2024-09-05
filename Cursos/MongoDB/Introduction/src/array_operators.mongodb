@@ -1,0 +1,20 @@
+use("array_operators")
+
+
+//$in funciona como un OR, busca cualquier valor de la lista que le mandes. Funciona para valores o para listas
+db.inventory.find({tags: {$in: ["electronics", "book"]}})
+
+//$nin funciona como un NOT, busca cualquier valor que no coincida con los de la lista que le mandes. Funciona para valores o para listas
+db.inventory.find({tags: {$nin: ["electronics", "book"]}})
+
+
+//$all busca que contenga todos los elementos de la lista que le mandes. Funciona solamente para listas
+db.inventory.find({tags: {$all: ["book", "school", "bag"]}})
+
+
+//$size busca que la lista tenga la misma cantidad de elementos que le indiques. Funciona solamente para listas
+db.inventory.find({tags: {$size: 2}})
+
+
+//$elemMatch funciona como meter otra query dentro, busca que dentro de la lista encuente al menos ese query
+db.survey.find({results: {$elemMatch: {product: "xyz", score: {$gte: 7}}}})

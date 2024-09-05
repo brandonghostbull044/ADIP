@@ -1,0 +1,12 @@
+use("array_update_operators")
+
+db.inventory.updateOne(
+    {_id: 4},
+    {
+        $push: {
+            tags: "headphones"
+        }
+    }
+)
+
+db.inventory.find()

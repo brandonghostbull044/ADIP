@@ -1,2 +1,2 @@
-use("sample_training")
-db.zips.find({state: "NY"})
+use("first_db")
+db.products.find({name: "Laptop X200"})

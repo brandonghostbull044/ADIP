@@ -1,0 +1,55 @@
+use("second_db")
+
+//drop() borra todos los documentos
+//La instruccion {ordered: false} como segundo parametro de la orden isnertMany nos asegura que aunque haya errores el codigo no se detenga e ingrese los que no tengan errores
+db.products.drop()
+
+db.products.insertMany([
+    {
+      "_id": 1,  
+      "name": "Laptop X200",
+      "description": "A high-performance laptop with 16GB RAM and 512GB SSD.",
+      "price": 1200.99,
+      "category": "Electronics",
+      "stock": 50
+    },
+    {
+      "_id": 1,  
+      "name": "Laptop X200 2",
+      "description": "A high-performance laptop with 16GB RAM and 512GB SSD.",
+      "price": 1200.99,
+      "category": "Electronics",
+      "stock": 50
+    },
+    {
+      "name": "Wireless Mouse",
+      "description": "Ergonomic wireless mouse with adjustable DPI.",
+      "price": 25.49,
+      "category": "Accessories",
+      "stock": 150
+    },
+    {
+      "name": "Mechanical Keyboard",
+      "description": "RGB mechanical keyboard with Cherry MX switches.",
+      "price": 89.99,
+      "category": "Accessories",
+      "stock": 75
+    },
+    {
+      "name": "4K Monitor",
+      "description": "Ultra HD 4K monitor with 60Hz refresh rate.",
+      "price": 299.99,
+      "category": "Electronics",
+      "stock": 30
+    },
+    {
+      "name": "USB-C Hub",
+      "description": "Multiport USB-C hub with HDMI, USB 3.0, and SD card slots.",
+      "price": 45.00,
+      "category": "Accessories",
+      "stock": 100
+    }
+  ], {ordered: false}
+  )
+
+  db.products.find()

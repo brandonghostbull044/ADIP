@@ -1,0 +1,19 @@
+use("sort_limit")
+
+// db.zips
+//     .find(
+//         {
+//             pop: {$gte: 100}
+//         }
+//     )
+//     .sort(
+//         {
+//             pop: 1
+//         }
+//     )
+//     .limit(10)
+
+db.categories
+    .find()
+    .skip(1)
+    .limit(2)

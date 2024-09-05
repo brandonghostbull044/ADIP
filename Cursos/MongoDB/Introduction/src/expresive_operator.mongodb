@@ -1,0 +1,27 @@
+use("sample_training")
+
+
+//$expr nos permite comparar valores de los campos, su estructura lleva dentro operadores logico, no funciona directamente
+db.trips.find(
+    {
+        $expr: {
+            $eq: ["$start station id", "$end station id"]
+        }
+    }
+)
+
+
+db.trips.find(
+    {
+        $and: [
+            {
+                $expr: {
+                    $eq: ["$start station id", "$end station id"]
+                }
+            },
+            {
+                tripduration: {$gte: 1500}
+            }
+        ]
+    }
+)

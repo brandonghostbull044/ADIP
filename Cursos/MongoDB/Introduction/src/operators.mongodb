@@ -1,0 +1,17 @@
+use("sample_training")
+
+
+//$gt (>), $gte (>=), $lt (<), $lte (<=)
+db.zips.find({pop: {$lte: 100000}})
+
+
+db.zips.updateMany(
+    {"loc.x": {$gt: 32.5, $lt: 33}},
+    {
+        $unset: {
+            "loc.x": "",
+        }
+    }
+)
+
+db.zips.find()
