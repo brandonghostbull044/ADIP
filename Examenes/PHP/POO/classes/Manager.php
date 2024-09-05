@@ -1,4 +1,4 @@
-require "./Employee.php"
+require "$__DIR__/./Employee.php"
 
 class Manager extends Employee {
     private $bonus;

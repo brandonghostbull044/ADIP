@@ -1,4 +1,4 @@
-require "../intefaces/Reporteable.php";
+require "$__DIR__/../intefaces/Reporteable.php";
 
 class SalariesReport implements Reporteable {
     public function generateReport($employees) {

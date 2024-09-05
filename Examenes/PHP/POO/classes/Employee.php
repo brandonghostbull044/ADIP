@@ -1,4 +1,4 @@
-require "../abstract/Person.php";
+require "$__DIR__ /../abstract/Person.php";
 
 class Employee extends Person {
     public $first_name;
