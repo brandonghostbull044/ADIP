@@ -1,4 +1,6 @@
-require "$__DIR__ /../abstract/Person.php";
+<?php
+
+require_once __DIR__ . "/../abstract/Person.php";
 
 class Employee extends Person {
     public $first_name;
@@ -25,6 +27,8 @@ class Employee extends Person {
     }
 
     public function greet () {
-        return "Hola, mi nombre es ". $this->getFullName(). ". Soy empleado del departamento ". $this->department.;
+        return "Hola, mi nombre es ". $this->getFullName(). ". Soy empleado del departamento ". $this->department;
     }
 }
+
+?>

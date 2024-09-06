@@ -1,7 +1,9 @@
-require "$__DIR__/./Employee.php"
+<?php
+
+require_once __DIR__ . "/./Employee.php";
 
 class Manager extends Employee {
-    private $bonus;
+    public $bonus;
 
     public function __construct($first_name, $last_name, $age, $department, $saliry, $bonus) {
         parent::__construct($first_name, $last_name, $age, $department, $saliry);
@@ -12,3 +14,5 @@ class Manager extends Employee {
         return parent::getAnnualSalary() + $this->bonus;
     }
 }
+
+?>

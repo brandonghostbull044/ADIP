@@ -1,3 +1,5 @@
+<?php
+
 abstract class Person {
     public $name;
 
@@ -7,3 +9,5 @@ abstract class Person {
 
     abstract public function greet();
 }
+
+?>
