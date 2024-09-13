@@ -1,0 +1,8 @@
+$geoWithin: Encuentra documentos dentro de una geometría.
+
+$near: Encuentra documentos cercanos a un punto, ordenados spor proximidad.
+
+$geoIntersects: Encuentra documentos cuya geometría 
+intersecte con una geometría dada.
+
+$centerSphere: Define una búsqueda dentro de una esfera usando un centro y un radio en radianes.
